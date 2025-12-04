@@ -1,0 +1,38 @@
+/* Navbar link styling */
+.nav-link {
+  color: #547794;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 10px;
+  border-radius: 6px;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+.nav-link:hover {
+  background-color: rgba(84, 119, 148, 0.12);
+}
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
