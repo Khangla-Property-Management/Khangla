@@ -11,28 +11,150 @@
   background-color: rgba(84, 119, 148, 0.12);
 }
 @import "tailwindcss";
+/* Import animations via the package export (resolves to its CSS style entry) */
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --radius: 0.625rem;
+  /* Light theme using provided palette */
+  --background: #f6f3ee; /* light background */
+  --foreground: #1c2430; /* dark readable text */
+  --card: #ffffff;
+  --card-foreground: #1c2430;
+  --popover: #ffffff;
+  --popover-foreground: #1c2430;
+  --primary: #547794; /* blue from palette */
+  --primary-foreground: #ffffff;
+  --secondary: #c2c9cd; /* soft gray */
+  --secondary-foreground: #1c2430;
+  --muted: #e0e0e0; /* muted surfaces */
+  --muted-foreground: #48515a;
+  --accent: #f6f3ee; /* subtle accent matches bg */
+  --accent-foreground: #1c2430;
+  --destructive: #cc3b3b; /* keep a red for errors */
+  --border: #e0e0e0; /* border from palette */
+  --input: #e0e0e0;
+  --ring: #c2c9cd;
+  /* Charts can loosely follow brand; keep neutral defaults */
+  --chart-1: #547794;
+  --chart-2: #c2c9cd;
+  --chart-3: #e0e0e0;
+  --chart-4: #6a8ca4;
+  --chart-5: #8fa3b5;
+  /* Sidebar tokens */
+  --sidebar: #f6f3ee; /* same as background for cohesion */
+  --sidebar-foreground: #1c2430;
+  --sidebar-primary: #547794;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #e9e6df; /* slightly darker than bg for hover */
+  --sidebar-accent-foreground: #1c2430;
+  --sidebar-border: #e0e0e0;
+  --sidebar-ring: #c2c9cd;
+}
+
+.dark {
+  /* Dark theme tuned to maintain brand contrast */
+  --background: #1c2430;
+  --foreground: #f6f3ee;
+  --card: #1f2a37;
+  --card-foreground: #f6f3ee;
+  --popover: #1f2a37;
+  --popover-foreground: #f6f3ee;
+  --primary: #8fa3b5; /* lighter blue for dark bg */
+  --primary-foreground: #1c2430;
+  --secondary: #2a3542;
+  --secondary-foreground: #f6f3ee;
+  --muted: #2a3542;
+  --muted-foreground: #c2c9cd;
+  --accent: #2a3542;
+  --accent-foreground: #f6f3ee;
+  --destructive: #e57373;
+  --border: #2f3a48;
+  --input: #2f3a48;
+  --ring: #547794;
+  --chart-1: #8fa3b5;
+  --chart-2: #547794;
+  --chart-3: #c2c9cd;
+  --chart-4: #6a8ca4;
+  --chart-5: #9fb0bf;
+  --sidebar: #1c2430;
+  --sidebar-foreground: #f6f3ee;
+  --sidebar-primary: #8fa3b5;
+  --sidebar-primary-foreground: #1c2430;
+  --sidebar-accent: #24303d;
+  --sidebar-accent-foreground: #f6f3ee;
+  --sidebar-border: #2f3a48;
+  --sidebar-ring: #547794;
+}
+
+/* Font classes */
+.font-inter {
+  font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.font-manrope {
+  font-family: 'Manrope', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.font-system {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.font-geist-sans {
+  font-family: 'Geist Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.font-geist-mono {
+  font-family: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    @apply bg-background text-foreground;
+  }
 }
