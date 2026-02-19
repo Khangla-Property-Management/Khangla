@@ -3,18 +3,11 @@
 import * as React from "react";
 import {
   Album,
-  BookOpen,
-  Bot,
-  Frame,
   Home,
   Landmark,
   LifeBuoy,
   Lock,
-  Map,
-  PieChart,
   Send,
-  Settings2,
-  SquareTerminal,
   Users,
 } from "lucide-react";
 import Image from "next/image";
