@@ -1,0 +1,10 @@
+{
+  "features": {
+    "claude_sonnet_4_5": {
+      "enabled": true,
+      "scope": "all_clients",
+      "rollout": 1.0,
+      "notes": "Enable Claude Sonnet 4.5 for all clients"
+    }
+  }
+}
