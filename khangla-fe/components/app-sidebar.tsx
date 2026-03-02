@@ -103,7 +103,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 </div>
                 <div className="grid flex-1 text-left leading-tight">
                   <span className="truncate text-base font-semibold">
-                    Khang La
+                    Khangla
                   </span>
                   <span className="truncate text-xs text-muted-foreground">
                     Property Management

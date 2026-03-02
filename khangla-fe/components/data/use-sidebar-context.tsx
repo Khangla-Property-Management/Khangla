@@ -20,7 +20,7 @@ import { usePathname } from "next/navigation";
 
 export default function Page({ children }: { children?: React.ReactNode }) {
   const pathname = usePathname();
-   const isAuthRoute = ["/login", "/signup"].includes(pathname);
+    const isAuthRoute = ["/login", "/signup"].includes(pathname);
 
   if (isAuthRoute) {
     return <main className="min-h-svh w-full">{children}</main>;

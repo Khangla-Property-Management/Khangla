@@ -17,7 +17,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "KhangLa",
+  title: "Khangla",
   description: "property management system",
 };
 
