@@ -20,12 +20,18 @@ import { usePathname } from "next/navigation";
 
 export default function Page({ children }: { children?: React.ReactNode }) {
   const pathname = usePathname();
+  const isAuthRoute = ["/login", "/signup"].includes(pathname);
+
+  if (isAuthRoute) {
+    return <main className="min-h-svh w-full">{children}</main>;
+  }
+
   const segments = pathname
     .split("/")
     .filter(Boolean)
     .map((seg, idx, arr) => ({
       label: decodeURIComponent(seg.replace(/-/g, " ")).replace(/\b\w/g, (c) =>
-        c.toUpperCase()
+        c.toUpperCase(),
       ),
       href: "/" + arr.slice(0, idx + 1).join("/"),
       isLast: idx === arr.length - 1,
@@ -87,3 +93,6 @@ export default function Page({ children }: { children?: React.ReactNode }) {
     </SidebarProvider>
   );
 }
+Yeshey  · 
+Edited
+Replace this code for use-sidebar-context.tsx which is under general components (data). After this push again
