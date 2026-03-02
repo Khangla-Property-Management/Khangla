@@ -1,5 +1,23 @@
+"use client";
+
+import { useState } from "react";
+import OwnerPage from "@/app/owner/components/owner-page";
+import OwnerLanding from "@/app/owner/components/owner-landing";
+
 export default function HomePage() {
-  return (
-    <div className="rounded-xl border bg-background p-6">This is owner page</div>
-  );
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  const handleGetStarted = () => {
+    setIsAuthenticated(true);
+  };
+
+  if (!isAuthenticated) {
+    return (
+      <div className="prelogin-background">
+        <OwnerLanding onGetStarted={handleGetStarted} />
+      </div>
+    );
+  }
+
+  return <OwnerPage />;
 }
