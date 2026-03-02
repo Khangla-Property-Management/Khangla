@@ -4,8 +4,8 @@ import { useRouter } from "next/navigation";
 import { Calendar } from "@/components/ui/calendar";
 import { SidebarGroup, SidebarGroupContent } from "@/components/ui/sidebar";
 import { Plus } from "lucide-react";
-import { Calendars } from "@/components/owner-calendar/calendars";
-import { DatePicker } from "@/components/owner-calendar/date-picker";
+import { Calendars } from "@/app/owner/components/calendars";
+import { DatePicker } from "@/app/owner/components/date-picker";
 import { NavUser } from "@/components/nav-user";
 import {
   Sidebar,
