@@ -93,6 +93,3 @@ export default function Page({ children }: { children?: React.ReactNode }) {
     </SidebarProvider>
   );
 }
-Yeshey  · 
-Edited
-Replace this code for use-sidebar-context.tsx which is under general components (data). After this push again
