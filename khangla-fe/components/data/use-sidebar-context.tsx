@@ -31,7 +31,7 @@ export default function Page({ children }: { children?: React.ReactNode }) {
     .filter(Boolean)
     .map((seg, idx, arr) => ({
       label: decodeURIComponent(seg.replace(/-/g, " ")).replace(/\b\w/g, (c) =>
-        c.toUpperCase()
+        c.toUpperCase(),
       ),
       href: "/" + arr.slice(0, idx + 1).join("/"),
       isLast: idx === arr.length - 1,
