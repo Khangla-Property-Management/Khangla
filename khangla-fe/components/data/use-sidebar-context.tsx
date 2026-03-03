@@ -17,10 +17,12 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 export default function Page({ children }: { children?: React.ReactNode }) {
   const pathname = usePathname();
-    const isAuthRoute = ["/login", "/signup"].includes(pathname);
+  const isAuthRoute = ["/login", "/signup"].includes(pathname);
+  const isHomesRoute = pathname.startsWith("/homes");
 
   if (isAuthRoute) {
     return <main className="min-h-svh w-full">{children}</main>;
@@ -82,9 +84,16 @@ export default function Page({ children }: { children?: React.ReactNode }) {
             </Breadcrumb>
           </div>
         </header>
-        <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
+        <div
+          className={cn(
+            "flex flex-1 min-h-0 flex-col gap-4 p-4 pt-0",
+            isHomesRoute ? "overflow-y-auto" : "overflow-hidden"
+          )}
+        >
           {children ? (
-            <div className="flex-1">{children}</div>
+            <div className={cn("flex-1 min-h-0", !isHomesRoute && "overflow-hidden")}>
+              {children}
+            </div>
           ) : (
             <div className="bg-muted/50 min-h-[40vh] flex-1 rounded-xl md:min-h-min" />
           )}

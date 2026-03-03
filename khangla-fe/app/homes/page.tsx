@@ -26,7 +26,7 @@ import {
  * @description The primary component that assembles all modular sections.
  */
 const App = () => (
-  <div className="min-h-screen bg-white antialiased font-sans">
+  <div className="h-full bg-white antialiased font-sans overflow-y-auto">
     <style>{`
       .fade-in { opacity: 0; transform: scale(1.01); animation: fadeIn 900ms ease-in-out forwards; will-change: opacity, transform; }
       @keyframes fadeIn { to { opacity: 1; transform: none; } }

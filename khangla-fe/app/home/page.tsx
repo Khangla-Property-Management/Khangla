@@ -159,7 +159,7 @@ export default function HomePage() {
         <Image src="/manage-properties.png" alt="" width={1} height={1} priority />
         <Image src="/search-hotels.png" alt="" width={1} height={1} priority />
       </div>
-      <div className="relative flex min-h-screen flex-col items-center justify-start gap-2 overflow-hidden bg-[#f6f3ee] pt-0 pb-6">
+      <div className="relative flex h-full flex-col items-center justify-start gap-2 overflow-hidden bg-[#f6f3ee] pt-0 pb-6">
         <Carousel
           opts={{
             align: "center",
